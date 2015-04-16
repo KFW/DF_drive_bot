@@ -5,7 +5,7 @@
 // with motor may need to power board seperately from servos and motors
 // simple sweep test
 
-#include <Servo.h>
+# include <Servo.h>
 
 Servo wrist;
 Servo claw;
