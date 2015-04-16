@@ -17,28 +17,28 @@ void halt(void)                    // Stop
   digitalWrite(E1,LOW);   
   digitalWrite(E2,LOW);      
 }   
-void fwd(char a,char b)          // Move forward
+void fwd(byte a,byte b)          // Move forward
 {
   analogWrite (E1,a);            // PWM Speed Control
   digitalWrite(M1,HIGH);    
   analogWrite (E2,b);    
   digitalWrite(M2,HIGH);
 }  
-void rev(char a,char b)          // Reverse
+void rev(byte a,byte b)          // Reverse
 {
   analogWrite (E1,a);
   digitalWrite(M1,LOW);   
   analogWrite (E2,b);    
   digitalWrite(M2,LOW);
 }
-void turn_L (char a,char b)      // Turn Left
+void turn_L (byte a,byte b)      // Turn Left
 {
   analogWrite (E1,a);
   digitalWrite(M1,LOW);    
   analogWrite (E2,b);    
   digitalWrite(M2,HIGH);
 }
-void turn_R (char a,char b)     // Turn Right
+void turn_R (byte a,byte b)     // Turn Right
 {
   analogWrite (E1,a);
   digitalWrite(M1,HIGH);    
@@ -69,7 +69,7 @@ void loop() {
   delay(3000);
   halt();
   delay(500);
-  turnL(128,128);
+  turn_L(128,128);
   delay(3000);
   halt();
   delay(5000);
