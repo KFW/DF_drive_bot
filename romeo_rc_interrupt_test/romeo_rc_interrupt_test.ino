@@ -22,10 +22,10 @@ unsigned long pulse = 0;
 unsigned long timestamp = 0;
 
 void setup() {
-  attachInterrupt(0,readint0, CHANGE); // pin 3 on Romeo
+  attachInterrupt(0, readint0, CHANGE); // pin 3 on Romeo
   Serial.begin(9600);
-  timestamep = micros();
-}
+  timestamp = micros();
+} // end setup()
 
 void loop() {
   noInterrupts(); // pause interrupts so pw0 is read faithfully and not changed part way during assignment
@@ -35,12 +35,11 @@ void loop() {
   // if so reset timestamp and print whatever value pulse is, recognizing that pw0 may have changed in meanwhile
   if ((micros() - timestamp) > 200000){
     timestamp = micros(); // reset for next comparison
-    serial.println(pulse);
+    Serial.println(pulse);
   }
+} // end loop()
 
-}
-
-void readint0 {
+void readint0() {
   // interrupt occurs on CHANGE - need to determine if now high (start of pulse) or low (end of pulse
   if(digitalRead(int0pin) == HIGH){
     start0 = micros();  // get time stamp for initiation of pulse
@@ -49,4 +48,4 @@ void readint0 {
     // pin must now be low - end of pulse; calculate pulse width
     pw0 = micros() - start0;
   }
-}
+} // end readint0()
