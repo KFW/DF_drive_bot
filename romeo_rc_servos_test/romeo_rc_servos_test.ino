@@ -34,8 +34,10 @@ volatile unsigned long wrist_pw0 = 0;   // volatile since will be in interrupt f
 volatile unsigned long claw_pw1 = 0;
 volatile unsigned long start0 = 0;
 volatile unsigned long start1 = 0;
+volatile boolean flag = 0;
 unsigned long wristpulse = 0;
 unsigned long clawpulse = 0;
+
 
 
 void setup() {
@@ -47,36 +49,48 @@ void setup() {
 
 void loop() {
   // ==========================================================================
-  // will want to set flag(s) to see if there has actualy been a signal change
+  // Will set generic flag to see if signal change. In future may want to 
+  // check more specific flags by signal
   // ==========================================================================  
-  if (FLAG){
-    noInterrupts(); // pause interrupts so pw signals are read faithfully and not changed part way during assignment
+  if (flag){
+    noInterrupts(); 
+    // pause interrupts so pw signals are read faithfully and not changed part way during assignment
+    // copy to values that will be used this time through loop even if later changed by interrupt
+    // if value unchanged will just read old value
     wristpulse = wrist_pw0;
     clawpulse = claw_pw1;
-    interrupts();   // there is a safer way to do this by saving and resorting settings register, but since I'm not using libraries should be OK
+    flag = false;
+    interrupts();   // turn interrupts back on; 
+                    // there is a safer way to do this by saving and resorting settings register, 
+                    // but since I'm not using external libraries should be OK
+    
     wrist.writeMicroseconds(wristpulse);
     claw.writeMicroseconds(clawpulse);
+    
+    
   }
 } // end loop()
 
 void readint0() {
-  // interrupt occurs on CHANGE - need to determine if now high (start of pulse) or low (end of pulse
+  // interrupt occurs on CHANGE - need to determine if now high (start of pulse) or low (end of pulse)
   if(digitalRead(int0pin) == HIGH){
     start0 = micros();  // get time stamp for initiation of pulse
   }
   else{   
     // pin must now be low - end of pulse; calculate pulse width
     wrist_pw0 = micros() - start0;
+    flag = true; // know signal occured; ok if multiple signals set flag in this version
   }
 } // end readint0()
 
 void readint1() {
-  // interrupt occurs on CHANGE - need to determine if now high (start of pulse) or low (end of pulse
+  // interrupt occurs on CHANGE - need to determine if now high (start of pulse) or low (end of pulse)
   if(digitalRead(int1pin) == HIGH){
     start1 = micros();  // get time stamp for initiation of pulse
   }
   else{   
     // pin must now be low - end of pulse; calculate pulse width
     claw_pw1 = micros() - start1;
+    flag = true;
   }
 } // end readint1()
