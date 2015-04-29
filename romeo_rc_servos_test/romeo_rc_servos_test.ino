@@ -25,8 +25,8 @@ https://beyondszine.wordpress.com/2013/10/31/part-ii-all-pin-interrupt-method-fo
 Servo wrist;
 Servo claw;
 
-const int int0pin = 3; // interrupt 0 is on pin 3
-const int int1pin = 2;
+const int int0pin = 3; // interrupt 0 is on pin 3 for wrist (throttle on receiver)
+const int int1pin = 2; // interrupt 1 is on pin 2 for claw (rudder on receiver)
 const int wristpin = 12;
 const int clawpin = 13;
 
