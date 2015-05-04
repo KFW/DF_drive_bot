@@ -17,14 +17,15 @@ const int ClawPin = 12;
 void setup() {
   wrist.attach(WristPin);
   claw.attach(ClawPin);
-  delay(100);
-  claw.write(0);
-  delay(3000); // time for servo to move
-  wrist.write(0);
+
 } // end setup()
 
 
 void loop() {
-  // everything done in setup
+  delay(100);
+  claw.write(0);
+  delay(3000); // time for servo to move
+  wrist.write(0);
+  delay(3000);
   
 } // end loop()
