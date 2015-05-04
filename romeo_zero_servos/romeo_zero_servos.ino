@@ -10,8 +10,8 @@
 Servo wrist;
 Servo claw;
 
-const int WristPin = 13;
-const int ClawPin = 12;
+const int WristPin = 9;
+const int ClawPin = 8;
 
 
 void setup() {
