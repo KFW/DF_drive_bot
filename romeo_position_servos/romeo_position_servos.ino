@@ -27,11 +27,11 @@ void setup() {
 
 void loop() {
   if (flag){
-    for(int pos = 90; pos>=0; pos-=1){                                
-      wrist.write(pos);               
-      delay(15); 
-    } 
-    for(int pos = 90; pos>=0; pos-=1) {                                
+//    for(int pos = 90; pos>=0; pos-=1){                                
+//      wrist.write(pos);               
+//      delay(15); 
+//    } 
+    for(int pos = 90; pos<=180; pos+=1) {     // 180 is closed position                           
       claw.write(pos);               
       delay(15);                      
     }
