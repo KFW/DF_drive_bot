@@ -12,17 +12,29 @@ Servo claw;
 
 const int WristPin = 13;
 const int ClawPin = 12;
+boolean flag = true;
 
 
 void setup() {
   wrist.attach(WristPin);
   claw.attach(ClawPin);
-  wrist.write(0);
-  claw.write(0);
-
+  wrist.write(90);
+  delay(500);
+  claw.write(90);
+  delay(500);
 } // end setup()
 
 
 void loop() {
-  // pass  
+  if (flag){
+    for(pos = 90; pos>=0; pos-=1){                                
+      wrist.write(pos);               
+      delay(15); 
+    } 
+    for(pos = 90; pos>=0; pos-=1) {                                
+      claw.write(pos);               
+      delay(15);                      
+    }
+    flag = false;
+  }
 }
