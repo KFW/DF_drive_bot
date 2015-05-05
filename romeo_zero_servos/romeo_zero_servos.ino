@@ -10,22 +10,19 @@
 Servo wrist;
 Servo claw;
 
-const int WristPin = 9;
-const int ClawPin = 8;
+const int WristPin = 13;
+const int ClawPin = 12;
 
 
 void setup() {
   wrist.attach(WristPin);
   claw.attach(ClawPin);
+  wrist.write(0);
+  claw.write(0);
 
 } // end setup()
 
 
 void loop() {
-  delay(100);
-  claw.write(0);
-  delay(3000); // time for servo to move
-  wrist.write(0);
-  delay(3000);
-  
-} // end loop()
+  // pass  
+}
