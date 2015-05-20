@@ -57,21 +57,16 @@ void setup(void)
 } // end setup()
 
 void loop() {
-  fwd(255,255);
+  analogWrite (E1,255);            // PWM Speed Control
+  digitalWrite(M1,HIGH); 
+  delay(2000); 
+  digitalWrite(E1, LOW);
+  delay(1000); 
+  analogWrite (E2,255);    
+  digitalWrite(M2,HIGH);
+  delay(2000);
+  digitalWrite(E2, LOW);
   delay(5000);
-  halt();
-  delay(500);
-  rev(255,255);
-  delay(5000);
-  halt();
-  delay(500);
-  turn_R(128,128);
-  delay(3000);
-  halt();
-  delay(500);
-  turn_L(128,128);
-  delay(3000);
-  halt();
-  delay(5000);
+
 
 } // end loop()
