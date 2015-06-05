@@ -52,31 +52,35 @@ const int Lspeed = 6;
 void setup() {
   wrist.attach(WristPin);
   claw.attach(ClawPin);
-  wrist.write(120); // starting position
-  claw.write(120);   
+  wrist.write(90); // starting position
+  claw.write(90);   
   
 } // end setup()
 
 
 void loop() {
-  forward(256,256);
+  forward(255,255);
   delay(3000);
   stop();
-  for (int i= 120; i > 60; i -= 1){
+  for (int i= 90; i > 30; i -= 1){
     claw.write(i);
+    delay(20);
   }
-  for (int i= 120; i > 60; i -= 1){
+  for (int i= 90; i > 30; i -= 1){
     wrist.write(i);
+    delay(20);
   }
-  for (int i= 60; i < 120; i += 1){
+  for (int i= 60; i < 30; i += 1){
     claw.write(i);
+    delay(20);
   }
-  for (int i= 60; i < 120; i += 1){
+  for (int i= 60; i < 30; i += 1){
     wrist.write(i);
+    delay(20);
   }
-  reverse(256,256);
-  delay(3000);
+  reverse(255,255);
   stop();
+  delay(3000);
   
 } // end loop()
 
