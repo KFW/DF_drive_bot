@@ -70,17 +70,19 @@ void loop() {
     wrist.write(i);
     delay(20);
   }
-  for (int i= 60; i < 30; i += 1){
+  for (int i= 30; i < 90; i += 1){
     claw.write(i);
     delay(20);
   }
-  for (int i= 60; i < 30; i += 1){
+  for (int i= 30; i < 90; i += 1){
     wrist.write(i);
     delay(20);
   }
+  delay(1000);
   reverse(255,255);
-  stop();
   delay(3000);
+  stop();
+  delay(1000);
   
 } // end loop()
 
@@ -95,7 +97,7 @@ void stop()
   digitalWrite(Lspeed,LOW);      
 }   
 
-void forward(int l,int r)   // technically only need 'char" for speeds
+void reverse(int l,int r)   // technically only need 'char" for speeds
 {
   digitalWrite(Ldir,LOW);
   analogWrite (Lspeed,l);         //PWM Speed Control   
@@ -103,7 +105,7 @@ void forward(int l,int r)   // technically only need 'char" for speeds
   analogWrite (Rspeed,r);
 }  
 
-void reverse(int l,int r) //Move backward
+void forward(int l,int r)
 {
   digitalWrite(Ldir,HIGH);  
   analogWrite (Lspeed,l);    
