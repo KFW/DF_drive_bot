@@ -25,25 +25,20 @@ void loop()
 {
   buttonVal = analogRead(ButtonPin);
   
-  if (buttonVal > ##){       // button # - fwd hard L
+  if (buttonVal < 30){       // button 1 - stop
+    halt();                  // L motor barely fwd, R motor hard fwd
+  }
+  else if (buttonVal < 175){ // button 2 - fwd hard L
     fwd(16,255);             // L motor barely fwd, R motor hard fwd
-    delay(5000);             // 5 sec for readings
-    halt();
   }
-  else if (buttonVal > ##){  // button # - fwd hard R
+  else if (buttonVal < 360){  // button 3 - fwd hard R
     fwd(255,16);
-    delay(5000);
-    halt();
   }
-  else if (buttonVal > ##){  // button # - rev hard L
+  else if (buttonVal < 540){  // button 4 - rev hard L
     rev(16,255);
-    delay(5000);
-    halt();
   }
-  else if (buttonVal > ##){  // button # - rev hard R
+  else if (buttonVal < 800){  // button 5 - rev hard R
     rev(255,16);
-    delay(5000);
-    halt();
   }
 }
 
@@ -66,3 +61,4 @@ void rev(byte a,byte b)          // Reverse
   digitalWrite(M1,LOW);   
   analogWrite (E2,b);    
   digitalWrite(M2,LOW);
+}  
