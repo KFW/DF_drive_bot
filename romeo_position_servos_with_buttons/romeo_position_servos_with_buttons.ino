@@ -12,7 +12,9 @@ http://www.dfrobot.com/wiki/index.php/Romeo_V2-All_in_one_Controller_(R3)_(SKU:D
 #include <Servo.h>
 
 Servo wrist;
-Servo claw;
+Servo claw; 
+const int ButtonPin = 0;
+int buttonVal = 0;
 
 const int WristPin = 13;
 const int ClawPin = 12;
