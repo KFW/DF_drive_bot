@@ -34,6 +34,8 @@ void setup() {
 void loop() 
 {
   buttonVal = analogRead(ButtonPin);
+  delay(10);
+  buttonVal = analogRead(ButtonPin); // for stable value??
   
   if (buttonVal < 30){       // button 1
     wrist.write(90);
