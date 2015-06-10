@@ -46,7 +46,7 @@ void loop()
   }
   else if (buttonVal < 200){ // button 2
     claw.write(0);
-    Serial.println("button 2")
+    Serial.println("button 2");
     delay(1000);    
   }
   else if (buttonVal < 350){  // button 3
