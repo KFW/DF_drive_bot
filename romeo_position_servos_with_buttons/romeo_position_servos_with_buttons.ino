@@ -22,6 +22,7 @@ const int ClawPin = 12;
 
 
 void setup() {
+  Serial.begin(9600);
   wrist.attach(WristPin);
   claw.attach(ClawPin);
   wrist.write(90);
@@ -40,18 +41,22 @@ void loop()
   if (buttonVal < 30){       // button 1
     wrist.write(90);
     claw.write(90);
+    Serial.println("button 1");
     delay(1000);    
   }
   else if (buttonVal < 200){ // button 2
     claw.write(0);
+    Serial.println("button 2")
     delay(1000);    
   }
   else if (buttonVal < 350){  // button 3
     claw.write(180);
+    Serial.println("button 3");
     delay(1000);
   }
   else if (buttonVal < 600){  // button 4
     wrist.write(0);
+    Serial.println("button 4");
     delay(1000);
   }
   else if (buttonVal < 850){  // button 5
