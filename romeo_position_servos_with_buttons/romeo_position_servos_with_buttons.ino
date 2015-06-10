@@ -40,19 +40,19 @@ void loop()
     claw.write(90);
     delay(1000);    
   }
-  else if (buttonVal < 175){ // button 2
+  else if (buttonVal < 200){ // button 2
     claw.write(0);
     delay(1000);    
   }
-  else if (buttonVal < 360){  // button 3
+  else if (buttonVal < 350){  // button 3
     claw.write(180);
     delay(1000);
   }
-  else if (buttonVal < 540){  // button 4
+  else if (buttonVal < 600){  // button 4
     wrist.write(0);
     delay(1000);
   }
-  else if (buttonVal < 800){  // button 5
+  else if (buttonVal < 850){  // button 5
     wrist.write(180);
     delay(1000);
   }
