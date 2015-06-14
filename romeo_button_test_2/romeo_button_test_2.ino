@@ -28,7 +28,7 @@ void loop()
     Serial.println("Button 2");     
   }
   else if (buttonVal < 360){  // button 3
-    Serial.println("Button 2");  
+    Serial.println("Button 3");  
   }
   else if (buttonVal < 540){  // button 4
     Serial.println("Button 4");  
