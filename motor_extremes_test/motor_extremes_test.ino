@@ -26,7 +26,7 @@ void loop()
   buttonVal = analogRead(ButtonPin);
   
   if (buttonVal < 30){       // button 1 - stop
-    halt();                  // L motor barely fwd, R motor hard fwd
+    halt();                  
   }
   else if (buttonVal < 175){ // button 2 - fwd hard L
     fwd(16,255);             // L motor barely fwd, R motor hard fwd
