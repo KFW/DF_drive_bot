@@ -32,13 +32,13 @@ void loop()
     fwd(192,192);              // motors fwd 3/4
   }
   else if (buttonVal < 360){  // button 3 
-    fwd(96,255);             // motors L fwd 3/8, R fwd full,
+    fwd(64,255);             // motors L fwd 1/4, R fwd full,
   }
   else if (buttonVal < 540){  // button 4
     rev(192,192);             // motors rev 3/4
   }
   else if (buttonVal < 800){  // button 5
-    rev(255,96);             // motors L rev full, R rev 3/8) 
+    rev(255,64);             // motors L rev full, R rev 1/4) 
   }
 }
 
