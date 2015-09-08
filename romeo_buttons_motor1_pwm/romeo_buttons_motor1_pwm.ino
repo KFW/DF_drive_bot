@@ -28,37 +28,37 @@ void loop()
   if (buttonVal < 30){       // button 1
     halt();                  
   }
-  else if (buttonVal < 175){ // motors 1/4 power
-    fwd(64,64);             
+  else if (buttonVal < 175){ // button 2 motors 1/4 power
+    fwd(64,64);              // motors fwd 1/4 power
   }
-  else if (buttonVal < 360){  // 1/2
-    fwd(128,128);
+  else if (buttonVal < 360){  // button 3 
+    fwd(128,128);             // motors fwd 1/2
   }
-  else if (buttonVal < 540){  // 3/4
-    fwd(192,192);
+  else if (buttonVal < 540){  // button 4
+    fwd(192,192);             // motors fwd 3/4
   }
-  else if (buttonVal < 800){  // motors full power
-    fwd(255,255);
+  else if (buttonVal < 800){  // button 5
+    fwd(255,255);             // motors full power
   }
 }
 
 
-void halt(void)                    // Stop
+void halt(void)               // Stop
 {
   digitalWrite(E1,LOW);   
   digitalWrite(E2,LOW);      
 }   
-void fwd(byte a,byte b)          // Move forward
+void fwd(byte a,byte b)       // Move forward
 {
-  analogWrite (E1,a);            // PWM Speed Control
-  digitalWrite(M1,HIGH);    
+  analogWrite (E1,a);         // PWM Speed Control
+  digitalWrite(M1,HIGH);      // HIGH for fwd
   analogWrite (E2,b);    
   digitalWrite(M2,HIGH);
 }  
-//void rev(byte a,byte b)          // Reverse
-//{
-//  analogWrite (E1,a);
-//  digitalWrite(M1,LOW);   
-//  analogWrite (E2,b);    
-//  digitalWrite(M2,LOW);
-//}  
+void rev(byte a,byte b)       // Reverse
+{
+  analogWrite (E1,a);
+  digitalWrite(M1,LOW);   
+  analogWrite (E2,b);    
+  digitalWrite(M2,LOW);
+}  
