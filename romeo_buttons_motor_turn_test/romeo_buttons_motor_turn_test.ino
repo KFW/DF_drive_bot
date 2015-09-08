@@ -1,7 +1,7 @@
 /*******************
-motor extreme test
+motor turn nest
 
-use buttons to test DFRobot Romeo v2 board for extremes of turning
+use buttons to test DFRobot Romeo v2 board for to test turns
 since behavior in actual robot was flaky
 
 *******************/
@@ -28,17 +28,17 @@ void loop()
   if (buttonVal < 30){       // button 1
     halt();                  
   }
-  else if (buttonVal < 175){ // button 2 motors 1/4 power
-    fwd(64,64);              // motors fwd 1/4 power
+  else if (buttonVal < 175){ // button 2 
+    fwd(192,192);              // motors fwd 3/4
   }
   else if (buttonVal < 360){  // button 3 
-    fwd(128,128);             // motors fwd 1/2
+    fwd(96,255);             // motors L fwd 3/8, R fwd full,
   }
   else if (buttonVal < 540){  // button 4
-    fwd(192,192);             // motors fwd 3/4
+    rev(192,192);             // motors rev 3/4
   }
   else if (buttonVal < 800){  // button 5
-    fwd(255,255);             // motors full power
+    rev(255,96);             // motors L rev full, R rev 3/8) 
   }
 }
 
